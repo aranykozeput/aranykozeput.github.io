@@ -4,47 +4,105 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Álláspontjaink</title>
+
   <style>
     body {
-  font-family: system-ui, Arial, sans-serif;
-  margin: 2rem;
-  max-width: 900px;
-  background: #f2f2f2;
-}
-    header { margin-bottom: 1.5rem; }
-    details { border: 1px solid #ddd; border-radius: 12px; padding: 1rem; margin: 0.75rem 0; }
-    summary { cursor: pointer; font-weight: 700; }
-    .stance { font-weight: 600; }
-    .why { margin-top: 0.75rem; line-height: 1.6; }
-    footer { margin-top: 2rem; font-size: 0.9rem; opacity: 0.8; }
+      font-family: system-ui, Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      max-width: 900px;
+      width: 100%;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    details {
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 0.75rem 0;
+      background: #fafafa;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .stance {
+      font-weight: 600;
+    }
+
+    .why {
+      margin-top: 0.75rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Álláspontjaink</h1>
-    <p>Rövid bemutatkozás: kik vagyunk, mi a célunk, hogyan hozunk döntéseket.</p>
-  </header>
+  <div class="container">
+    <header>
+      <h1>Álláspontjaink</h1>
+      <p>Rövid bemutatkozás: kik vagyunk, miért létezünk, és hogyan gondolkodunk a közéletről.</p>
+    </header>
 
-  <details>
-    <summary>Ukrajna háború — <span class="stance">Támogatjuk Ukrajnát</span> [+ MIÉRT]</summary>
-    <div class="why">
-      <p><strong>Miért:</strong> Írd ide a magyarázatot (pontok, érvek, források).</p>
-      <ul>
-        <li>Érv 1</li>
-        <li>Érv 2</li>
-      </ul>
-    </div>
-  </details>
+    <details>
+      <summary>
+        Ukrajna háború — <span class="stance">Támogatjuk Ukrajnát</span> [+ MIÉRT]
+      </summary>
+      <div class="why">
+        <p><strong>Miért:</strong></p>
+        <ul>
+          <li>Nemzetközi jog és szuverenitás tisztelete</li>
+          <li>Európai biztonság és stabilitás</li>
+          <li>Hosszú távú béke csak agresszió elutasításával lehetséges</li>
+        </ul>
+      </div>
+    </details>
 
-  <details>
-    <summary>Egészségügy — <span class="stance">Itt egy egymondatos álláspont</span> [+ MIÉRT]</summary>
-    <div class="why">
-      <p><strong>Miért:</strong> Magyarázat…</p>
-    </div>
-  </details>
+    <details>
+      <summary>
+        Egészségügy — <span class="stance">Mindenki számára elérhető alapellátás</span> [+ MIÉRT]
+      </summary>
+      <div class="why">
+        <p><strong>Miért:</strong></p>
+        <p>
+          Az egészség nem kiváltság, hanem alapjog. A megelőzés, az átlátható finanszírozás
+          és a dolgozók megbecsülése kulcsfontosságú.
+        </p>
+      </div>
+    </details>
 
-  <footer>
-    <p>Kapcsolat: email@pelda.hu • Utoljára frissítve: 2026-02-21</p>
-  </footer>
+    <footer>
+      <p>
+        Kapcsolat: email@pelda.hu<br>
+        Utoljára frissítve: 2026-02-21
+      </p>
+    </footer>
+  </div>
 </body>
 </html>
