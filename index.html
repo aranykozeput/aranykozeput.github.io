@@ -6,7 +6,7 @@
   <title>Álláspontjaink</title>
 
   <style>
-    /* Page background (almost black) */
+    /* Page background */
     body {
       margin: 0;
       padding: 2.5rem;
@@ -16,7 +16,7 @@
       justify-content: center;
     }
 
-    /* Main content card */
+    /* Main card */
     .container {
       background: #2b2b2b;
       max-width: 900px;
@@ -24,12 +24,22 @@
       padding: 2.5rem;
       border-radius: 18px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-      color: #000; /* FORCE black text */
     }
 
-    /* Force black text everywhere */
+    /* Default text color */
     .container * {
       color: #000;
+    }
+
+    /* NON-INTERACTIVE TEXT OUTLINE */
+    header h1,
+    header p,
+    footer {
+      text-shadow:
+        -0.5px -0.5px 0 rgba(255,255,255,0.6),
+         0.5px -0.5px 0 rgba(255,255,255,0.6),
+        -0.5px  0.5px 0 rgba(255,255,255,0.6),
+         0.5px  0.5px 0 rgba(255,255,255,0.6);
     }
 
     header h1 {
