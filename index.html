@@ -16,31 +16,34 @@
       justify-content: center;
     }
 
-    /* Main content card (dark grey) */
+    /* Main content card */
     .container {
-      background: #2a2a2a;
-      color: #111;
+      background: #2b2b2b;
       max-width: 900px;
       width: 100%;
       padding: 2.5rem;
       border-radius: 18px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      color: #000; /* FORCE black text */
+    }
+
+    /* Force black text everywhere */
+    .container * {
+      color: #000;
     }
 
     header h1 {
       margin-top: 0;
       margin-bottom: 0.5rem;
-      color: #000;
     }
 
     header p {
-      color: #1a1a1a;
       margin-bottom: 2rem;
     }
 
     /* Accordion items */
     details {
-      background: #d6d6d6;
+      background: #d9d9d9;
       border-radius: 12px;
       padding: 1rem 1.25rem;
       margin-bottom: 1rem;
@@ -49,7 +52,6 @@
     summary {
       cursor: pointer;
       font-weight: 700;
-      color: #000;
       list-style: none;
     }
 
@@ -64,18 +66,11 @@
     .why {
       margin-top: 0.75rem;
       line-height: 1.6;
-      color: #111;
-    }
-
-    .why p,
-    .why li {
-      color: #111;
     }
 
     footer {
       margin-top: 2.5rem;
       font-size: 0.9rem;
-      color: #1a1a1a;
     }
   </style>
 </head>
@@ -109,8 +104,8 @@
       </summary>
       <div class="why">
         <p>
-          Az egészség alapjog. Az ellátórendszer célja nem a profit, hanem az emberek
-          életminőségének javítása és a megelőzés.
+          Az egészség alapjog. Az ellátórendszer célja nem a profit,
+          hanem az emberek életminőségének javítása.
         </p>
       </div>
     </details>
