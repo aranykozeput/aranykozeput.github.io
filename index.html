@@ -19,32 +19,31 @@
     /* Main card */
     .container {
       background: #2b2b2b;
-      max-width: 900px;
+      max-width: 980px;
       width: 100%;
       padding: 2.5rem;
       border-radius: 18px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
     }
 
-    /* Default text color */
-    .container * {
-      color: #000;
-    }
+    /* Default text color everywhere */
+    .container * { color: #000; }
 
-    /* LOGO — 2x bigger */
+    /* Logo — bigger on desktop */
     .logo {
       display: block;
       margin: 0 auto 2rem auto;
-      max-width: 560px;   /* doubled */
+      max-width: 560px;
       width: 100%;
       height: auto;
     }
+    @media (max-width: 600px) {
+      .logo { max-width: 360px; }
+    }
 
     /* NON-INTERACTIVE TEXT: bold + thin white outline */
-    header h1,
-    header p,
-    footer {
-      font-weight: 700;
+    .noninteractive {
+      font-weight: 800;
       text-shadow:
         -0.5px -0.5px 0 rgba(255,255,255,0.6),
          0.5px -0.5px 0 rgba(255,255,255,0.6),
@@ -53,55 +52,70 @@
     }
 
     header h1 {
-      margin-top: 0;
-      margin-bottom: 0.75rem;
+      margin: 0 0 0.75rem 0;
       text-align: center;
+      font-size: 2.25rem; /* bigger for readability */
+      line-height: 1.15;
     }
 
     header p {
-      margin-bottom: 2rem;
+      margin: 0 0 2rem 0;
+      text-align: center;
+      font-size: 1.15rem; /* a bit bigger */
+      line-height: 1.55;
+    }
+
+    .section-title {
+      margin: 0 0 0.75rem 0;
+      font-size: 1.55rem;
+      line-height: 1.2;
       text-align: center;
     }
 
-    /* Accordion items */
-    details {
-      background: #d9d9d9;
+    .section-text {
+      margin: 0 0 2rem 0;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    /* Category accordion */
+    details.category {
+      background: #cfcfcf;
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+
+    /* Issue accordion (nested) */
+    details.issue {
+      background: #e0e0e0;
       border-radius: 12px;
       padding: 1rem 1.25rem;
-      margin-bottom: 1rem;
+      margin: 0.75rem 0;
     }
 
     summary {
       cursor: pointer;
-      font-weight: 700;
+      font-weight: 800;
       list-style: none;
     }
+    summary::-webkit-details-marker { display: none; }
 
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .stance {
-      font-weight: 600;
-    }
+    .stance { font-weight: 700; }
 
     .why {
-      margin-top: 0.75rem;
-      line-height: 1.6;
+      margin-top: 0.85rem;
+      line-height: 1.65;
       font-weight: 400;
     }
 
+    .why p { margin: 0.75rem 0; }
+
     footer {
       margin-top: 2.5rem;
-      font-size: 0.9rem;
       text-align: center;
-    }
-
-    /* Optional: slightly smaller logo on very small screens */
-    @media (max-width: 600px) {
-      .logo {
-        max-width: 360px;
-      }
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -112,40 +126,182 @@
     <!-- LOGO -->
     <img src="images/logo.png" alt="Arany középút logó" class="logo">
 
+    <!-- INTRO -->
     <header>
-      <h1>Álláspontjaink</h1>
-      <p>
-        Rövid bemutatkozás: kik vagyunk, miért létezünk, és hogyan gondolkodunk a közéletről.
+      <h1 class="noninteractive">Álláspontjaink</h1>
+      <p class="noninteractive">
+        Az <strong>Arany középút</strong> egy formálódó politikai kezdeményezés, amelynek célja az, hogy világos, átlátható és
+        következetes válaszokat adjon a mai társadalmi és politikai kérdésekre.<br><br>
+        Ez az oldal azért jött létre, hogy összegyűjtsük és közérthetően bemutassuk azokat az álláspontokat, amelyek mentén
+        az <strong>Arany középút</strong> a jövőben működni szeretne – indoklással együtt.
       </p>
     </header>
 
-    <details>
-      <summary>
-        Ukrajna háború — <span class="stance">Támogatjuk Ukrajnát</span> [+ MIÉRT]
-      </summary>
-      <div class="why">
-        <p><strong>Miért:</strong></p>
-        <ul>
-          <li>A szuverenitás és a nemzetközi jog tisztelete</li>
-          <li>Európa hosszú távú biztonsága</li>
-          <li>Az agresszió nem lehet elfogadható precedens</li>
-        </ul>
-      </div>
+    <!-- NAME MEANING -->
+    <h2 class="section-title noninteractive">Mit jelent az Arany középút?</h2>
+    <p class="section-text noninteractive">
+      Az <strong>Arany középút</strong> elnevezés tudatos választás. Arra a meggyőződésre utal, hogy a mai közéletet túlságosan
+      gyakran határozzák meg merev ideológiai címkék: baloldali vagy jobboldali, liberális vagy konzervatív.<br><br>
+      Mi nem ezekhez a címkékhez szeretnénk igazodni. Ehelyett minden kérdésben arra törekszünk, hogy megtaláljuk azt a megoldást,
+      amely a lehető leginkább <strong>morálisan védhető</strong>, <strong>logikusan átgondolt</strong>, és <strong>tényeken alapul</strong>.
+      Az arany középút számunkra nem „langyos kompromisszum”, hanem nyitott vizsgálat: értékes elemek felismerése, és a közjót nem
+      szolgáló megoldások következetes elutasítása.
+    </p>
+
+    <!-- CATEGORIES -->
+
+    <details class="category">
+      <summary>Belpolitika és közélet [+]</summary>
+
+      <details class="issue">
+        <summary>
+          Korrupció és átláthatóság — <span class="stance">Rendszerszintű visszaszorítás, valódi átláthatósággal</span> [+ MIÉRT]
+        </summary>
+        <div class="why">
+          <p><strong>Egymondatos álláspont:</strong> A korrupció nem csupán egyéni visszaélések sorozata, hanem rendszerszintű probléma, amelyet csak valódi átláthatósággal és következetes intézményi megoldásokkal lehet visszaszorítani.</p>
+
+          <p>A korrupció Magyarországon sokak számára elsősorban a közpénzek eltűnését jelenti, de a probléma ennél mélyebb. A legnagyobb kár nem pusztán anyagi: a folyamatos visszaélések érzete hosszú távon aláássa az emberek bizalmát az államban, az intézményekben és a politikában mint egészben.</p>
+
+          <p>Nem gondoljuk, hogy minden döntésnek vagy minden állami működésnek teljes részletességgel nyilvánosnak kell lennie. Ugyanakkor ez nem jelentheti azt, hogy a közpénzek felhasználása követhetetlenné válik. Olyan rendszert kell kialakítani, amelyben az állampolgárok közérthető formában követhetik, mire fordítják a közös forrásokat.</p>
+
+          <p>Hisszük, hogy a visszaélések kockázatát csökkenteni kell: szakmai alkalmasságon alapuló kinevezésekkel, működő ellenőrzéssel és valós számonkérhetőséggel. Számunkra az átláthatóság alapállás: a döntések érthetők, indokolhatók és számonkérhetők kell legyenek.</p>
+        </div>
+      </details>
+
+      <details class="issue">
+        <summary>
+          Jogállamiság és intézmények — <span class="stance">A törvények mindenkire egyformán vonatkoznak</span> [+ MIÉRT]
+        </summary>
+        <div class="why">
+          <p><strong>Egymondatos álláspont:</strong> A jogállamiság lényege az, hogy a törvények mindenkire egyformán vonatkoznak, és sem a hatalom, sem az egyes intézmények nem állhatnak a jog fölött.</p>
+
+          <p>A jogállamiság számunkra alapfeltétel. Egy jól működő országban magától értetődőnek kellene lennie annak, hogy az állam, a politikai vezetők és az intézmények egyaránt a törvényeknek vannak alárendelve, és az alapvető jogok valódi védelem alatt állnak.</p>
+
+          <p>A jogállamiság nem létezhet független intézmények nélkül. A bíróságoknak, az ügyészségnek és a rendvédelmi szerveknek politikai befolyástól mentesen kell működniük. A politika szerepe korlátozott: nem irányítania, hanem garantálnia kell a törvényes működést.</p>
+
+          <p>Amikor egy befolyásos személy következmények nélkül marad, az azt az üzenetet közvetíti, hogy a jog nem mindenkire vonatkozik. Ez aláássa a társadalom normakövetését. Számunkra az intézmények függetlensége nem alku tárgya.</p>
+        </div>
+      </details>
+
+      <details class="issue">
+        <summary>
+          Média és nyilvánosság — <span class="stance">Szabad, sokszínű tájékoztatás</span> [+ MIÉRT]
+        </summary>
+        <div class="why">
+          <p><strong>Egymondatos álláspont:</strong> A szabad és sokszínű tájékoztatás alapfeltétele egy működő demokráciának; a média nem lehet a hatalom eszköze, hanem a nyilvánosság szolgálója kell legyen.</p>
+
+          <p>Sokan úgy látják, hogy a nyilvánosság jelentős része nem a valóság bemutatására, hanem politikai üzenetek közvetítésére szolgál, gyakran egyoldalúan. A valódi tájékozódás sokszor csak azok számára elérhető, akik tudatosan több forrásból informálódnak.</p>
+
+          <p>Ha létezik állami média, annak kizárólag a társadalmat kell szolgálnia: hiteles, tényszerű tájékoztatással, kiegyensúlyozott módon. Az állami nyilvánosság nem lehet egyetlen politikai erő kommunikációs felülete, és nem szolgálhat manipulációra.</p>
+
+          <p>A pluralizmus természetes: nem baj, ha különböző értékrendű médiumok léteznek. A határ ott húzódik, ahol a tartalom nem meggyőződésből, hanem anyagi vagy politikai nyomás hatására születik. A legnagyobb veszély a félretájékoztatás és az ebből fakadó apátia.</p>
+        </div>
+      </details>
+
+      <details class="issue">
+        <summary>
+          A demokrácia működése — <span class="stance">Tájékozott döntések, tisztességes játékszabályok</span> [+ MIÉRT]
+        </summary>
+        <div class="why">
+          <p><strong>Egymondatos álláspont:</strong> A demokrácia nem pusztán a szavazás aktusa, hanem egy olyan rendszer, amely csak akkor működik jól, ha az állampolgárok tájékozott döntéseket tudnak hozni, és a játékszabályok nem torzulnak a hatalom érdekében.</p>
+
+          <p>A választások léte önmagában nem garantálja a népakarat érvényesülését. Ha a döntéseket tartósan egyoldalú tájékoztatás vagy manipuláció befolyásolja, a szavazás inkább formális eseménnyé válik.</p>
+
+          <p>Az apátia és a „úgysem számít” érzés a demokráciát belülről gyengíti. Ez gyakran akkor alakul ki, amikor az emberek hosszú időn keresztül azt tapasztalják, hogy nincs valódi beleszólásuk a folyamatokba.</p>
+
+          <p>A demokratikus részvétel nem merülhet ki négyévente leadott szavazatban. Bizonyos kérdésekben szükség van arra, hogy az állampolgári vélemény közvetlenebb formában is megjelenhessen, miközben összetett ügyekben a felelős döntéshozatal szakmai alapokra kell épüljön. A fő kihívás ma a manipuláció és az ebből fakadó bizalmatlanság.</p>
+        </div>
+      </details>
     </details>
 
-    <details>
-      <summary>
-        Egészségügy — <span class="stance">Mindenki számára elérhető alapellátás</span> [+ MIÉRT]
-      </summary>
-      <div class="why">
-        <p>
-          Az egészség alapjog. Az ellátórendszer célja nem a profit,
-          hanem az emberek életminőségének javítása.
-        </p>
-      </div>
+    <details class="category">
+      <summary>Gazdaság és megélhetés [+]</summary>
+
+      <details class="issue">
+        <summary>
+          Infláció és megélhetési válság — <span class="stance">Az árak nem szakadhatnak el tartósan a bérektől</span> [+ MIÉRT]
+        </summary>
+        <div class="why">
+          <p><strong>Egymondatos álláspont:</strong> Az infláció és a megélhetési válság akkor válik valódi társadalmi problémává, amikor az árak tartósan elszakadnak a jövedelmektől, és a tisztességes munkából élők sem tudnak biztonságosan megélni.</p>
+
+          <p>Az elmúlt években az infláció mindennapi tapasztalattá vált. Sok kiadás vált megfontolandóvá vagy elérhetetlenné, nem luxuscikkekről, hanem alapvető szolgáltatásokról és élelmiszerekről beszélve.</p>
+
+          <p>A válság nemcsak az árak emelkedéséből fakad, hanem abból is, hogy a jövedelmek nem követik ezt a változást. A társadalmi széttartás erősödik: vannak, akik viszonylag biztonságosan átvészelik, míg mások számára minden hónap számolgatás.</p>
+
+          <p>Hisszük, hogy a gazdaság célja nem pusztán a túlélés biztosítása. A tisztességes munkából élőknek lehetőséget kell kapniuk előre tervezni, fejlődni, és időnként a mindennapokon túlmutató dolgokra is költeni.</p>
+        </div>
+      </details>
+
+      <details class="issue">
+        <summary>
+          Bérek, adók, középosztály — <span class="stance">A munka adjon biztonságot, ne csak túlélést</span> [+ MIÉRT]
+        </summary>
+        <div class="why">
+          <p><strong>Egymondatos álláspont:</strong> Egy egészséges gazdaságban a munka nem pusztán a túlélést kell, hogy biztosítsa, hanem kiszámítható megélhetést, fejlődési lehetőséget és egy stabil középosztály fennmaradását.</p>
+
+          <p>Sok esetben a túlóra nem választás, hanem feltétele annak, hogy valaki ki tudja gazdálkodni a hónap végét. Ez hosszú távon nem fenntartható.</p>
+
+          <p>Az adórendszerrel kapcsolatban sokan a terhek aránytalanságát érzik problémásnak, különösen az átlagos jövedelműek és az önállóan dolgozók körében. Az adófizetés akkor válik elfogadhatóvá, ha látszik, hogy a befizetett pénz a közösség javát szolgálja.</p>
+
+          <p>Az adózásnak igazságosabbnak kell lennie: figyelembe kell vennie a jövedelmi különbségeket. A középosztály megerősítése kulcskérdés: nem elég „el lenni”, előre is lehessen lépni.</p>
+        </div>
+      </details>
+
+      <details class="issue">
+        <summary>
+          Lakhatás — <span class="stance">A lakhatás alap, nem kiváltság</span> [+ MIÉRT]
+        </summary>
+        <div class="why">
+          <p><strong>Egymondatos álláspont:</strong> A lakhatás nem kiváltság, hanem alapfeltétel: egy olyan társadalomban, ahol a fizetés jelentős része pusztán a tető feletti jogért megy el, a gazdasági és társadalmi egyensúly megbomlik.</p>
+
+          <p>Az albérletárak sok esetben olyan szintre emelkedtek, hogy egy átlagos lakás fenntartása a jövedelem aránytalanul nagy részét felemészti. Saját tulajdon megszerzése sokak számára reálisan elérhetetlenné vált, különösen családi segítség nélkül.</p>
+
+          <p>Az albérlet és a lakásvásárlás közötti választás sokszor nem valódi döntés: egyik sem ad stabilitást. Emiatt sokan kényszerülnek lakótársi megoldásokra, pusztán anyagi okokból.</p>
+
+          <p>A szülőkkel való együttélés sok esetben racionális és jelenleg a legbiztonságosabb megoldás, de hosszú távon nem egészséges, ha a felnőtté válás és az önálló életkezdés évekkel tolódik ki. A lakhatási válság kezelése hosszú távú, következetes döntéseket igényel.</p>
+        </div>
+      </details>
     </details>
 
-    <footer>
+    <details class="category">
+      <summary>Szociális és társadalmi kérdések [+]</summary>
+
+      <details class="issue">
+        <summary>
+          Egészségügy — <span class="stance">Időben, méltósággal, anyagi helyzettől függetlenül</span> [+ MIÉRT]
+        </summary>
+        <div class="why">
+          <p><strong>Egymondatos álláspont:</strong> Az egészségügy nem lehet bizonytalansági tényező: egy működő rendszerben a betegeknek időben, emberhez méltó módon és anyagi helyzettől függetlenül kell ellátáshoz jutniuk.</p>
+
+          <p>A hosszú várólisták és a túlterheltség sokak számára mindennapi tapasztalat. A sürgősségi ellátásban gyakori a többórás, akár egész napos várakozás, miközben a folyamatok lassan, széttagoltan zajlanak.</p>
+
+          <p>Az orvos- és szakemberhiány mögött az áll, hogy az állami egészségügy sokak számára nem kínál vonzó életpályát. A felelősséghez és terheléshez képest a megbecsülés gyakran nem arányos.</p>
+
+          <p>Elfogadhatatlannak tartjuk, hogy a gyors és megfelelő ellátás sok esetben pénz kérdése legyen. Az egészség nem privilégium. Ugyanakkor az egészségügyi dolgozók megbecsülése nem lehet egyoldalú: a páciensek kiszolgáltatott helyzetben vannak, és joggal várják el az emberi bánásmódot. Ennek a képzésben és intézményi kultúrában is meg kell jelennie.</p>
+
+          <p>Az egészségügy átalakítása politikai prioritás kell legyen: a közpénzek felhasználását úgy kell szervezni, hogy az emberek egészségét, biztonságát és méltóságát helyezze előtérbe.</p>
+        </div>
+      </details>
+
+      <details class="issue">
+        <summary>
+          Oktatás — <span class="stance">Gondolkodás, készségek, személyre szabott utak</span> [+ MIÉRT]
+        </summary>
+        <div class="why">
+          <p><strong>Egymondatos álláspont:</strong> Az oktatás célja nem a bemagoltatás, hanem az, hogy a fiatalok megtalálják, miben jók, miben érzik magukat otthonosan, és hogyan tudnak értelmes, önálló életet építeni.</p>
+
+          <p>Az oktatás problémája nem elsősorban az épületek állapota, hanem a tanárhiány, a túlterheltség és az elavult szemlélet. Miközben az információhoz való hozzáférés alapvetően megváltozott, a rendszer működése alig alakult.</p>
+
+          <p>Újra kell gondolni: miért járnak a gyerekek iskolába. A rendszer túl gyakran kényszeríti őket olyan tananyag elsajátítására, amely sem nem érdekli őket, sem nem segíti a későbbi boldogulást. Több differenciálásra van szükség: nem minden diáknak ugyanarra az útra.</p>
+
+          <p>Az általános műveltség alapjai fontosak, de a cél nem az egységes terhelés, hanem az értelmes, használható tudás. Ma túl sok minden a bemagolásról szól, miközben kevéssé tanít meg gondolkodni, tanulni, problémát megoldani.</p>
+
+          <p>A felsőoktatás fontos lehetőség, de nem lehet az egyetlen elfogadott út. Többféle, egyformán megbecsült életútnak kell elérhetőnek lennie – úgy, hogy a fiatalok valódi eséllyel találják meg a helyüket itthon.</p>
+        </div>
+      </details>
+    </details>
+
+    <footer class="noninteractive">
       <p>
         Kapcsolat: email@pelda.hu<br>
         Utoljára frissítve: 2026-02-21
